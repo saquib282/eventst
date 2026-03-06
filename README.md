@@ -33,7 +33,7 @@ kubectl get nodes
 
 ## Step 3 — Deploy via CI/CD (Jenkins)
 
-Push to `main` branch — Jenkins pipeline triggers automatically.
+Push to `master` branch — Jenkins pipeline triggers automatically.
 
 **What the pipeline does:**
 1. Build Docker image
