@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aahar
+  namespace: eventstrat
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: aahar
+  template:
+    metadata:
+      labels:
+        app: aahar
+    spec:
+      containers:
+        - name: aahar
+          image: your-dockerhub-username/aahar:latest
+          ports:
+            - containerPort: 3008
+          env:
+            - name: NODE_ENV
+              value: "production"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aahar
+  namespace: eventstrat
+spec:
+  selector:
+    app: aahar
+  ports:
+    - port: 80
+      targetPort: 3008

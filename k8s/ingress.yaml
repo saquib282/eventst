@@ -1,0 +1,83 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: eventstrat-ingress
+  namespace: eventstrat
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+    - host: eventstrat.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: client
+                port:
+                  number: 80
+
+          - path: /api/users
+            pathType: Prefix
+            backend:
+              service:
+                name: ums
+                port:
+                  number: 80
+
+          - path: /api/meetings
+            pathType: Prefix
+            backend:
+              service:
+                name: meeting
+                port:
+                  number: 80
+
+          - path: /api/analytics
+            pathType: Prefix
+            backend:
+              service:
+                name: analytics
+                port:
+                  number: 80
+
+          - path: /api/sessions
+            pathType: Prefix
+            backend:
+              service:
+                name: sessions
+                port:
+                  number: 80
+
+          - path: /api/polls
+            pathType: Prefix
+            backend:
+              service:
+                name: polls
+                port:
+                  number: 80
+
+          - path: /api/blog
+            pathType: Prefix
+            backend:
+              service:
+                name: blog
+                port:
+                  number: 80
+
+          - path: /api/notifications
+            pathType: Prefix
+            backend:
+              service:
+                name: notification
+                port:
+                  number: 80
+
+          - path: /api/aahar
+            pathType: Prefix
+            backend:
+              service:
+                name: aahar
+                port:
+                  number: 80
