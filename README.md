@@ -1,4 +1,4 @@
-# Project Name
+# Microservices Environment
 
 ## Prerequisites
 
